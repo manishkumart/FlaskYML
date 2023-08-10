@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNL Files</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body style="display:flex; align-items:center; justify-content:center;">
+<div class="login-page">
+    <div class="loader" style="visibility:hidden">
+    </div>
+  <div id = "generate-form" class="form">
+    <form  class="login-form" method="post" method="post" action="/" enctype="multipart/form-data">
+      <h2 class = "heading"></i> Generate YML Files</h2>
+      <input id="pdf_file" type="file" name="pdf_file" accept=".pdf">
+      <input id="api_key" type="password" name="api_key" placeholder="API key" class="key">
+     <button type="submit"  style="font-size: 20px; background-color: transparent; border: none;">
+
+    <a  class="btn" style="font-size: 20px">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Generate
+      </a> 
+    </button> 
+   
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="static/main.js"></script>
+<script>
+    const generateForm = document.getElementById("generate-form");
+    generateForm.addEventListener("submit", async (event) => {
+        //event.preventDefault(); // Prevent the default form submission behavior
+
+        const pdfFileInput = document.getElementById("pdf_file");
+        const apiKeyInput = document.getElementById("api_key");
+
+        const pdfFile = pdfFileInput.files[0];
+        const apiKey = apiKeyInput.value;
+
+        if (pdfFile && apiKey) {
+            // alert("in if", pdfFile,apiKey);
+            // Perform the necessary actions using JavaScript here
+            // For example, you can make an API call or perform any other logic
+            // Update the progress bar as needed
+
+            // Simulating an API call delay
+            await new Promise((resolve) => setTimeout(resolve, 10));
+
+            // After processing is done, you can reset the form or update UI
+            generateForm.reset();
+        } else {
+            
+            // Handle error or missing input
+            alert("Please provide both PDF file and API key.");
+        }
+    });
+</script>
+</body>
+</html>
