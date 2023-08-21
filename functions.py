@@ -8,9 +8,7 @@ import time
 import io
 
 
-# openai.api_key = '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'
-
-def generate_nlu_files_from_pdf(pdf_content, api_key):
+def generate_nlu_files_from_pdf(pdf_content, api_key, que):
     
     
     openai.api_key = api_key
@@ -26,8 +24,8 @@ def generate_nlu_files_from_pdf(pdf_content, api_key):
 
     def get_completion(text_content):
         
-        user_message = """
-        Give me 10 questions that can be answered with the information in text_content.
+        user_message = f"""
+        Give me {que} questions that can be answered with the information in text_content.
         What are the corresponding answers?
         """
         
@@ -51,7 +49,7 @@ def generate_nlu_files_from_pdf(pdf_content, api_key):
     # List of default GPT-3 responses to filter out
     FILTER_RESPONSES = [
     "I can provide five questions and their corresponding answers based on the above text:",
-    "I'm sorry, as an AI language model, I cannot provide a list of 10 questions and their corresponding answers without any context. Could you please provide more information or specify the questions you would like me to answer?"
+    f"I'm sorry, as an AI language model, I cannot provide a list of {que} questions and their corresponding answers without any context. Could you please provide more information or specify the questions you would like me to answer?"
     ]
 
     # Filter sentences

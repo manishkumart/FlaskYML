@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YNL Files</title>
+    <title>YML Files</title>
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body style="display:flex; align-items:center; justify-content:center;">
@@ -16,6 +16,7 @@
       <h2 class = "heading"></i> Generate YML Files</h2>
       <input id="pdf_file" type="file" name="pdf_file" accept=".pdf">
       <input id="api_key" type="password" name="api_key" placeholder="API key" class="key">
+      <input id="que" type="show" name="que" placeholder="Number of Questions" class="key">
      <button type="submit"  style="font-size: 20px; background-color: transparent; border: none;">
 
     <a  class="btn" style="font-size: 20px">
@@ -24,9 +25,9 @@
         <span></span>
         <span></span>
         Generate
-      </a> 
-    </button> 
-   
+      </a>
+    </button>
+
     </form>
   </div>
 </div>
@@ -39,11 +40,13 @@
 
         const pdfFileInput = document.getElementById("pdf_file");
         const apiKeyInput = document.getElementById("api_key");
+        const queInput = document.getElementById("que");
 
         const pdfFile = pdfFileInput.files[0];
         const apiKey = apiKeyInput.value;
+        const que = queInput.value;
 
-        if (pdfFile && apiKey) {
+        if (pdfFile && apiKey && que) {
             // alert("in if", pdfFile,apiKey);
             // Perform the necessary actions using JavaScript here
             // For example, you can make an API call or perform any other logic
@@ -55,9 +58,9 @@
             // After processing is done, you can reset the form or update UI
             generateForm.reset();
         } else {
-            
+
             // Handle error or missing input
-            alert("Please provide both PDF file and API key.");
+            alert("Please provide both PDF file, API key and Number of questions.");
         }
     });
 </script>

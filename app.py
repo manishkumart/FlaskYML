@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_file
-from functions import * 
+from functions import *
 import zipfile
 
 app = Flask(__name__)
@@ -10,13 +10,13 @@ def index():
     if request.method == "POST":
         pdf_file = request.files["pdf_file"]
         api_key = request.form["api_key"]
-        print("hellollll", pdf_file, api_key)
+        que = request.form["que"]
 
         # Read the PDF content from the FileStorage object
         pdf_content = pdf_file.read()
         # Your existing script to generate NLU files ba sed on the PDF
-        generate_nlu_files_from_pdf(pdf_content, api_key)
-        
+        generate_nlu_files_from_pdf(pdf_content, api_key,que )
+
         return redirect("/download")
 
     return render_template("index.html",visibility="visible")
